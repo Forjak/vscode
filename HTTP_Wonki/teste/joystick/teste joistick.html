@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/nipplejs@0.9.0/dist/nipplejs.min.js"></script>
+<div id="zonaJoystick" style="width:200px; height:200px; background:#eee; border-radius:50%; margin-top: 20px;"></div>
+<script>
+  const zona = document.getElementById('zonaJoystick');
+  const joystick = nipplejs.create({
+    zone: zona,
+    mode: 'static',
+    position: { left: '50%', top: '50%' },
+    color: 'blue'
+  });
+
+  joystick.on('move', function (evt, data) {
+    const angulo = data.angle.degree;
+    const dist = data.distance;
+    const x = data.vector.x.toFixed(2);
+    const y = data.vector.y.toFixed(2);
+
+    console.log(`X: ${x}, Y: ${y}, Ângulo: ${angulo}, Distância: ${dist}`);
+
+    // Enviar pro ESP32 com fetch?
+    /*
+    fetch(`http://192.168.0.X/joystick?x=${x}&y=${y}`)
+      .then(res => res.text())
+      .then(msg => console.log(msg));
+    */
+  });
+</script>

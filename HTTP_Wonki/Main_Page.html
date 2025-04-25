@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "pt-br"> <!--linguagem-->
+<head> 
+    <meta charset="utf-8">             <!--define que o conteúdo de uma página da web será codificado em UTF-8. O UTF-8 é o conjunto de caracteres mais usado na web e permite a utilização de caracteres especiais e acentos. -->
+    <title> Painel de controle </title> <!--\\define o título da página que aparece na aba do navegador.-->
+    <style> body {                      <!-- define o estilo do corpo da página. -->
+        font-family: sans-serif; \\define a fonte do texto da página.;
+        text-align: center;      \\define o alinhamento do texto da página.;
+        paddign: 40px:           \\define o espaçamento interno do corpo da página.;
+    }
+    button{
+        front-size: 18px;
+        padding: 10px 20px; <!-- define o espaçamento interno do botão. -->
+        margin: 10px; <!-- define o espaçamento externo do botão. -->
+        cursor: pointer; <!-- define o cursor do mouse quando passa sobre o botão. -->
+        }
+    </style>
+</head>
+<body>
+    <h1> Controle do Esp32</h1> <!--titulo central no começo da pagina -->
+    
+    <p Style="position: absolute; top 50px; left: 50px;"> <b><i>Estado do LED</i></b> <p> <!--subtitulo centralizado abaixo do titulo principal-->
+    
+    
+    <button id= "botaoControle" onclick= "alternarEstado()" style= "position: absolute; top: 130px; left: 50px; margin-top: 10xp">ligar</button>
+    
+    
+    <script>
+        let ligado = false;
+
+function alternarEstado() {
+  if (!ligado) {
+    // Se está desligado, liga e muda o texto
+    ligado = true;
+    document.getElementById("botaoControle").textContent = "Desligar";
+    // aqui você colocaria o fetch para o ESP32 com /on
+  } else {
+    // Se está ligado, desliga e muda o texto
+    ligado = false;
+    document.getElementById("botaoControle").textContent = "Ligar";
+    // aqui você colocaria o fetch para o ESP32 com /off
+  }
+}
+
+    </script>
+    
+</body>

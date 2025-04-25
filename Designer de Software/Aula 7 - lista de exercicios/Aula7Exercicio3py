@@ -1,0 +1,17 @@
+def find(string, substring, start_index=0):
+    """
+    Encontra a primeira ocorrência de 'substring' em 'string' começando a busca a partir de 'start_index'.
+    Retorna o índice da primeira ocorrência ou -1 se não for encontrada.
+    """
+    if start_index < 0 or start_index >= len(string):
+        return -1 
+
+    for i in range(start_index, len(string) - len(substring) + 1):
+        if string[i:i + len(substring)] == substring:
+            return i
+    return -1
+
+
+texto = "hello world"
+resultado = find(texto, "world", 3)
+print(resultado)  
