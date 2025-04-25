@@ -8,5 +8,4 @@ def cont_num_frut():
     frutas_transformadas = list(map(list, frutas_filtradas))
     
     print(frutas_transformadas)
-
 cont_num_frut()
